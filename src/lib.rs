@@ -398,16 +398,6 @@ where
     }
 }
 
-impl<T, B> cmp::PartialEq<B> for BitFlags<T>
-where
-    T: RawBitFlags,
-    B: Into<BitFlags<T>> + Copy,
-{
-    fn eq(&self, other: &B) -> bool {
-        self.bits() == Into::<Self>::into(*other).bits()
-    }
-}
-
 impl<T, B> ops::BitOr<B> for BitFlags<T>
 where
     T: RawBitFlags,
